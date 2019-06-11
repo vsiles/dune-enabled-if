@@ -1,0 +1,4 @@
+(library
+    (name some_macosx_lib)
+    (wrapped false)
+    (enabled_if (= %{system} macosx)))

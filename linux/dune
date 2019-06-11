@@ -1,0 +1,4 @@
+(library
+    (name some_linux_lib)
+    (wrapped false)
+    (enabled_if (= %{system} linux)))

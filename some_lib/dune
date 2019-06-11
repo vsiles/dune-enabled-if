@@ -1,0 +1,16 @@
+(* -*- tuareg -*- *)
+
+let () =
+  let system = List.assoc "system" Jbuild_plugin.V1.ocamlc_config in
+  let impl = match system with
+  | "macosx" -> "some_macosx_lib"
+  | "linux" -> "some_linux_lib"
+  | x -> "some_" ^ x ^ "_lib"
+  in
+  Printf.ksprintf Jbuild_plugin.V1.send "\
+
+(library
+  (name some_lib)
+  (wrapped false)
+  (libraries %s))
+" impl
